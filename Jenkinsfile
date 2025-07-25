@@ -3,28 +3,29 @@ pipeline{
     stages
   {
     stage("clone repo"){
-
-    git branch: 'main', url: 'https://github.com/srisinu1/terraform-jenkins-pipeline.git'
-  }
-}
-stage('terraform init')
+      steps
+      {
+        git branch: 'main', url: 'https://github.com/srisinu1/terraform-jenkins-pipeline.git'
+      }
+    }
+stage('terraform init') {
 steps {
   sh 'terraform init'
      }
 }
-stage('terraform validate')
+stage('terraform validate') {
 steps {
   sh 'terraform validate'
      }
 }
-stage('terraform plan')
+stage('terraform plan') {
 steps {
   sh 'terraform plan'
      }
 }
- stage('terraform apply')
+ stage('terraform apply') {
 steps {
   sh 'terraform apply'
      }
-}
-   
+    }
+  }
